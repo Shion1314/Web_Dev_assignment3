@@ -5,35 +5,41 @@ const colorChosen = document.getElementById('color-chosen');
 
 
 
- const addRow = () =>{
+const addRow = () => {
+    const table = document.querySelector('#grid-sheet');
+    const rows = table.querySelectorAll('tr');
+     let numColumns=0;
+     if (rows.length > 0) {
+         numColumns = rows[0].querySelectorAll('td').length;
+     } 
 
     const newRow = document.createElement('tr');
 
-
-
-    // Create a new square element
-
-    const newSquare = document.createElement('td');
-
-    newSquare.classList.add('square');
-
-
-    newRow.appendChild(newSquare);
-    // Append the new row to the table
-
-    const table = document.querySelector('#grid-sheet');
+    if (rows.length === 0) {
+       // If it's a empty table then create the object on row 1 column 1
+        const newSquare = document.createElement('td');
+        newSquare.classList.add('square');
+        newRow.appendChild(newSquare);
+    } else {
+        // Add cells to all columns
+        for (let i = 0; i < numColumns; i++) {
+            const newSquare = document.createElement('td');
+            newSquare.classList.add('square');
+            newRow.appendChild(newSquare);
+        }
+    }
 
     table.appendChild(newRow);
-
 }
 
+
 const addColumn= ()=>{
+    
     const rows = document.querySelectorAll('#grid-sheet tr');
 
     if(rows.length===0){
         addRow();
     }
-    // Loop through all rows
     for (let i = 0; i < rows.length; i++) {
         //create another column 
         const newSquare = document.createElement('td');
