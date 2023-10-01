@@ -3,6 +3,7 @@ const addRowButton = document.getElementById('add-row-button');
 const addColumnButton = document.getElementById('add-column-button');
 const colorChosen = document.getElementById('color-chosen');
 const deleteRowButton = document.getElementById('remove-row-button');
+const deleteColumnButton=document.getElementById('remove-column-button');
 
 
 
@@ -60,6 +61,23 @@ const deleteRow = () => {
     }
 }
 
+const deleteColumn = () => {
+    const table = document.querySelector('#grid-sheet');
+    const rows = document.querySelectorAll('tr');
+   
+    if (rows.length > 0) {
+        for (let i = 0; i < rows.length; i++) {
+        // select the td in every row "tr" by looping
+        const numColumns = rows[i].querySelectorAll('td');
+        // remove the last td in every row
+        rows[i].removeChild(numColumns[numColumns.length-1]);
+        }
+    }
+}
+
+
+
 addRowButton.addEventListener('click', addRow);
 addColumnButton.addEventListener('click', addColumn);
 deleteRowButton.addEventListener('click',deleteRow);
+deleteColumnButton.addEventListener('click',deleteColumn)
