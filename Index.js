@@ -1,7 +1,6 @@
 const gridSheet = document.getElementById('grid-sheet');
 const addRowButton = document.getElementById('add-row-button');
 const addColumnButton = document.getElementById('add-column-button');
-const colorChosen = document.getElementById('color-chosen');
 const deleteRowButton = document.getElementById('remove-row-button');
 const deleteColumnButton=document.getElementById('remove-column-button');
 
@@ -78,6 +77,12 @@ const deleteColumn = () => {
     }
 }
 
+document.addEventListener('click', function(e) {
+    const colorChosen = document.getElementById('color-chosen').value;
+    if (e.target.tagName === "TD"){
+        e.target.style.backgroundColor = colorChosen;
+    }
+}, false);
 
 
 addRowButton.addEventListener('click', addRow);
