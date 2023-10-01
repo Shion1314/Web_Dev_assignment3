@@ -12,9 +12,10 @@ const addRow = () => {
     const rows = table.querySelectorAll('tr');
      let numColumns=0;
      if (rows.length > 0) {
+        // always based on the first row, get the amount of td in the first row
          numColumns = rows[0].querySelectorAll('td').length;
      } 
-
+    //creating a new tr element, which is new row
     const newRow = document.createElement('tr');
 
     if (rows.length === 0) {
@@ -22,8 +23,8 @@ const addRow = () => {
         const newSquare = document.createElement('td');
         newSquare.classList.add('square');
         newRow.appendChild(newSquare);
-    } else {
-        // Add cells to all columns
+    } else { 
+        // Add square to all columns
         for (let i = 0; i < numColumns; i++) {
             const newSquare = document.createElement('td');
             newSquare.classList.add('square');
@@ -36,16 +37,18 @@ const addRow = () => {
 
 
 const addColumn= ()=>{
-    
+    // select all the row "tr" at grid-sheet(the table)
     const rows = document.querySelectorAll('#grid-sheet tr');
-
+    // if there is now rows or col existed it will just create a square on spot by calling addRow()
     if(rows.length===0){
         addRow();
     }
+    // // Loop through each existing row ('tr') to add a new 'td' element in each row
     for (let i = 0; i < rows.length; i++) {
         //create another column 
         const newSquare = document.createElement('td');
-        newSquare.classList.add('square');
+        newSquare.classList.add('square'); 
+        // append a new 'td' element in current row(tr)
         rows[i].appendChild(newSquare);
     }
 }
