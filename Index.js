@@ -2,6 +2,7 @@ const gridSheet = document.getElementById('grid-sheet');
 const addRowButton = document.getElementById('add-row-button');
 const addColumnButton = document.getElementById('add-column-button');
 const colorChosen = document.getElementById('color-chosen');
+const deleteRowButton = document.getElementById('remove-row-button');
 
 
 
@@ -47,5 +48,18 @@ const addColumn= ()=>{
         rows[i].appendChild(newSquare);
     }
 }
+
+const deleteRow = () => {
+    const table = document.querySelector('#grid-sheet');
+    const rows = table.querySelectorAll('tr');
+    
+    // Check if there are rows to delete
+    if (rows.length > 0) {
+        // Remove the last row
+        table.removeChild(rows[rows.length - 1]);
+    }
+}
+
 addRowButton.addEventListener('click', addRow);
 addColumnButton.addEventListener('click', addColumn);
+deleteRowButton.addEventListener('click',deleteRow);
