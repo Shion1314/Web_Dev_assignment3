@@ -5,7 +5,7 @@ const deleteRowButton = document.getElementById('remove-row-button');
 const deleteColumnButton=document.getElementById('remove-column-button');
 
 
-
+//
 const addRow = () => {
     const table = document.querySelector('#grid-sheet');
     const rows = table.querySelectorAll('tr');
