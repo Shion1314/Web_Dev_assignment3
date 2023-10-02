@@ -3,7 +3,7 @@ const addRowButton = document.getElementById('add-row-button');
 const addColumnButton = document.getElementById('add-column-button');
 const deleteRowButton = document.getElementById('remove-row-button');
 const deleteColumnButton=document.getElementById('remove-column-button');
-
+const colorAllButton = document.getElementById('color-all-button');
 
 //
 const addRow = () => {
@@ -84,8 +84,16 @@ document.addEventListener('click', function(e) {
     }
 }, false);
 
+const colorAllCells = () => {
+    const colorChosen = document.getElementById('color-chosen').value;
+    const cells = document.querySelectorAll('td');
+    cells.forEach(cell => {
+        cell.style.backgroundColor = colorChosen;
+    });
+}
 
 addRowButton.addEventListener('click', addRow);
 addColumnButton.addEventListener('click', addColumn);
 deleteRowButton.addEventListener('click',deleteRow);
 deleteColumnButton.addEventListener('click',deleteColumn)
+colorAllButton.addEventListener('click', colorAllCells);
