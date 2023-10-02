@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Assignment 3</title>
-</head>
-<body>
+
+    <link href="coloris.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="Index.css" />
+  </head>
+
+  <body>
     <h1>Add Square to Blank Sheet</h1>
 
     <div>
-        <button id="add-row-button">Add Row</button>
-        <button id="add-column-button">Add Column</button>
-        <button id="remove-row-button">Remove Row</button>
-        <button id="remove-column-button">Remove Column</button>
-        <button id="color-all-button">Color All Cells</button>
-        <button id="color-uncolored-button">Color All Uncolored Cells</button>
+      <button id="add-row-button">Add Row</button>
+      <button id="add-column-button">Add Column</button>
+      <button id="remove-row-button">Remove Row</button>
+      <button id="remove-column-button">Remove Column</button>
+      <button id="color-all-button">Color All Cells</button>
+      <button id="color-uncolored-button">Color All Uncolored Cells</button>
 
-        <select id="color-chosen">
-            <option value="white">White</option>
-            <option value="red">Red</option>
-            <option value="black">Black</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-        </select>
-        
+      <input id="color-chosen" type="text" data-coloris />
     </div>
 
-    <table id="grid-sheet">
-       
-    </table>
+    <table id="grid-sheet"></table>
 
-    <!-- <table>
-        <tr>
-            <td> col1 </td>
-            <td>c2</td>
-        </tr>
-        <tr>
-            <td>col2</td>
-        </tr>
-    
-       
-    </table> -->
-
+    <script src="coloris.min.js"></script>
     <script src="Index.js"></script>
-    <link rel="stylesheet" type="text/css" href="Index.css">
-</body>
+  </body>
 </html>
