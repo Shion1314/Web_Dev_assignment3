@@ -7,8 +7,6 @@ const colorAllButton = document.getElementById("color-all-button");
 const colorUncoloredButton = document.getElementById("color-uncolored-button");
 const removeColorButton = document.getElementById("remove-color-button");
 
-const coloris = Coloris();
-
 //
 const addRow = () => {
   const table = document.querySelector("#grid-sheet");
@@ -80,20 +78,38 @@ const deleteColumn = () => {
   }
 };
 
-document.addEventListener(
-  "click",
-  function (e) {
-    const colorChosen = document.getElementById("color-chosen").value;
-    if (e.target.tagName === "TD") {
-      e.target.style.backgroundColor = colorChosen;
-    }
-  },
-  false
-);
+const colorContiguousCells = (cell, color) => {
+  const { cellIndex } = cell;
+  const { rowIndex } = cell.parentElement;
+
+  const grid = document.getElementById("grid-sheet");
+
+  const top = grid.children[rowIndex - 1]?.children[cellIndex];
+  const left = grid.children[rowIndex]?.children[cellIndex - 1];
+  const bottom = grid.children[rowIndex + 1]?.children[cellIndex];
+  const right = grid.children[rowIndex]?.children[cellIndex + 1];
+
+  if (top) {
+    top.style.backgroundColor = color;
+  }
+
+  if (left) {
+    left.style.backgroundColor = color;
+  }
+
+  if (bottom) {
+    bottom.style.backgroundColor = color;
+  }
+
+  if (right) {
+    right.style.backgroundColor = color;
+  }
+};
 
 const colorAllCells = () => {
   const colorChosen = document.getElementById("color-chosen").value;
   const cells = document.querySelectorAll("td");
+
   cells.forEach((cell) => {
     cell.style.backgroundColor = colorChosen;
   });
@@ -125,3 +141,22 @@ deleteColumnButton.addEventListener("click", deleteColumn);
 colorAllButton.addEventListener("click", colorAllCells);
 colorUncoloredButton.addEventListener("click", colorUncoloredCells);
 removeColorButton.addEventListener("click", removeColorFromAllCells);
+
+document.addEventListener(
+  "click",
+  (e) => {
+    if (!e.target.classList.contains("square")) {
+      return;
+    }
+
+    const colorChosen = document.getElementById("color-chosen").value;
+    const isContiguous = document.getElementById("contiguous-mode").checked;
+
+    if (isContiguous) {
+      colorContiguousCells(e.target, colorChosen);
+    }
+
+    e.target.style.backgroundColor = colorChosen;
+  },
+  false
+);
