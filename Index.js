@@ -99,7 +99,7 @@ const colorUncoloredCells = () => {
     const cells = document.querySelectorAll('td');
 
     cells.forEach(cell => {
-        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") {
+        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "transparent") {
             cell.style.backgroundColor = colorChosen;
         }
     });
@@ -109,7 +109,7 @@ const removeColorFromAllCells = () => {
     const cells = document.querySelectorAll('td');
 
     cells.forEach(cell => {
-        cell.style.backgroundColor = "white";
+        cell.style.backgroundColor = "transparent";
     });
 }
 
