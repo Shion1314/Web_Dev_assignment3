@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Assignment 3</title>
+
+    <link href="coloris.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="Index.css" />
   </head>
+
   <body>
     <h1>Add Square to Blank Sheet</h1>
 
@@ -16,30 +20,12 @@
       <button id="color-uncolored-button">Color All Uncolored Cells</button>
       <button id="remove-color-button">Uncolor All Cells</button>
 
-      <select id="color-chosen">
-        <option value="white">White</option>
-        <option value="red">Red</option>
-        <option value="black">Black</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-      </select>
+      <input id="color-chosen" type="text" data-coloris />
     </div>
 
     <table id="grid-sheet"></table>
 
-    <!-- <table>
-        <tr>
-            <td> col1 </td>
-            <td>c2</td>
-        </tr>
-        <tr>
-            <td>col2</td>
-        </tr>
-    
-       
-    </table> -->
-
+    <script src="coloris.min.js"></script>
     <script src="Index.js"></script>
-    <link rel="stylesheet" type="text/css" href="Index.css" />
   </body>
 </html>
