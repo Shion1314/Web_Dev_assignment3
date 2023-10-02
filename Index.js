@@ -5,6 +5,7 @@ const deleteRowButton = document.getElementById('remove-row-button');
 const deleteColumnButton = document.getElementById('remove-column-button');
 const colorAllButton = document.getElementById('color-all-button');
 const colorUncoloredButton = document.getElementById('color-uncolored-button');
+const removeColorButton = document.getElementById('remove-color-button');
 
 //
 const addRow = () => {
@@ -98,9 +99,17 @@ const colorUncoloredCells = () => {
     const cells = document.querySelectorAll('td');
 
     cells.forEach(cell => {
-        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") {
+        if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "transparent") {
             cell.style.backgroundColor = colorChosen;
         }
+    });
+}
+
+const removeColorFromAllCells = () => {
+    const cells = document.querySelectorAll('td');
+
+    cells.forEach(cell => {
+        cell.style.backgroundColor = "transparent";
     });
 }
 
@@ -110,3 +119,4 @@ deleteRowButton.addEventListener('click', deleteRow);
 deleteColumnButton.addEventListener('click', deleteColumn)
 colorAllButton.addEventListener('click', colorAllCells);
 colorUncoloredButton.addEventListener('click', colorUncoloredCells);
+removeColorButton.addEventListener('click', removeColorFromAllCells);
